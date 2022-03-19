@@ -1,0 +1,25 @@
+# one package per line
+opensc-pkcs11
+opensc
+ansible
+python3-pymysql
+jq
+bash
+bind9-dnsutils
+net-tools
+ipcalc
+network-manager-openconnect-gnome
+python3-requests
+python3-pip
+rsync
+scdaemon
+sqlite3
+sudo
+tilix
+virt-manager
+pass
+qtpass
+git
+chromium
+xorriso
+vim

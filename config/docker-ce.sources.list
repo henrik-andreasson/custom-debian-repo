@@ -1,0 +1,1 @@
+deb [arch=amd64 signed-by=/home/han/cicd/debian-repo-mini-mirror/config/docker-ce.gpgkey] https://download.docker.com/linux/debian   bullseye stable

@@ -1,0 +1,9 @@
+# one package per line
+opensc-pkcs11
+opensc
+ansible
+python3-pymysql
+jq
+bash
+bind9-dnsutils
+net-tools
