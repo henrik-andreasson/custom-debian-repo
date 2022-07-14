@@ -1,0 +1,4 @@
+temurin-8-jdk
+temurin-11-jdk
+temurin-17-jdk
+adoptium-ca-certificates

@@ -7,3 +7,5 @@ jq
 bash
 bind9-dnsutils
 net-tools
+python3-netaddr
+python3-mysqldb

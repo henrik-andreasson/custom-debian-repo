@@ -54,13 +54,22 @@ for pkg in ${PACKAGES} ; do
 		continue
 	fi
   echo "downloading $pkg"
-  apt-get download $CUSTOMSOURCE "$pkg"
+  if [ "x${SOURCELIST}" != "x" ] ; then
+    apt-get download -o Dir::Etc::SourceList="${SOURCELIST}" $pkg
+  else
+    apt-get download $pkg
+  fi
+
 
 	if [ $DEPENDS -eq 1 ] ; then
 	 	depends=$(apt-rdepends "$pkg" | grep -v "^ ")
 	  for dep in $depends ; do
 	    echo "Downloading dependencies for $pkg: $dep"
-	    apt-get download $CUSTOMSOURCE "${dep}"
+      if [ "x${SOURCELIST}" != "x" ] ; then
+        apt-get download -o Dir::Etc::SourceList="${SOURCELIST}" $dep
+      else
+        apt-get download $dep
+      fi
 	  done
 	fi
 done
