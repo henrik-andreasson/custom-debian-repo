@@ -1,0 +1,1 @@
+deb [signed-by=/home/han/cicd/debian-custom-repo/config/elastic.gpgkey arch=amd64] https://artifacts.elastic.co/packages/8.x/apt stable main

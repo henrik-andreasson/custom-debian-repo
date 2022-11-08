@@ -73,6 +73,3 @@ for pkg in ${PACKAGES} ; do
 	  done
 	fi
 done
-
-#from pkg: dpkg-dev
-dpkg-scanpackages -m . | gzip -c > Packages.gz

@@ -13,6 +13,9 @@ gnome-core
 gnome-icon-theme
 gnome-session
 gnome-shell
+gnome-shell-extension-no-annoyance
+gnome-shell-extension-multi-monitors
+gnome-shell-extension-dash-to-panel
 gnome-terminal
 gnome-themes-standard
 gnupg-pkcs11-scd-proxy
