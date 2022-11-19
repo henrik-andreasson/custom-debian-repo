@@ -62,7 +62,7 @@ for pkg in ${PACKAGES} ; do
 
 
 	if [ $DEPENDS -eq 1 ] ; then
-	 	depends=$(apt-rdepends "$pkg" | grep -v "^ ")
+	 	depends=$(apt-rdepends -o Dir::Etc::SourceList="${SOURCELIST}" "$pkg" | grep -v "^ ")
 	  for dep in $depends ; do
 	    echo "Downloading dependencies for $pkg: $dep"
       if [ "x${SOURCELIST}" != "x" ] ; then
