@@ -1,0 +1,3 @@
+# one package per line
+glusterfs-server
+glusterfs-client
