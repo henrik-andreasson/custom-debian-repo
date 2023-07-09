@@ -46,6 +46,9 @@ if [ "x${REPO_DIR}" != "x" ] ; then
 		mkdir -p "${REPO_DIR}"
 	fi
 	cd "${REPO_DIR}"
+else
+  echo "no repo dir"
+  exit -1
 fi
 
 IFS=$'\n'
