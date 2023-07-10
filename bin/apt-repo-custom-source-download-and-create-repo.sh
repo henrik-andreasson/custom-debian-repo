@@ -58,9 +58,9 @@ for pkg in ${PACKAGES} ; do
 	fi
   echo "downloading $pkg"
   if [ "x${SOURCELIST}" != "x" ] ; then
-    apt-get download -o Dir::Etc::SourceList="${SOURCELIST}" $pkg
+    apt-get download -o Dir::Cache="./" -o Dir::Cache::archives="./" -o Dir::Etc::SourceList="${SOURCELIST}" $pkg
   else
-    apt-get download $pkg
+    apt-get download -o Dir::Cache="./" -o Dir::Cache::archives="./" $pkg
   fi
 
 
@@ -69,9 +69,9 @@ for pkg in ${PACKAGES} ; do
 	  for dep in $depends ; do
 	    echo "Downloading dependencies for $pkg: $dep"
       if [ "x${SOURCELIST}" != "x" ] ; then
-        apt-get download -o Dir::Etc::SourceList="${SOURCELIST}" $dep
+        apt-get download -o Dir::Cache="./" -o Dir::Cache::archives="./" -o Dir::Etc::SourceList="${SOURCELIST}" $dep
       else
-        apt-get download $dep
+        apt-get download -o Dir::Cache="./" -o Dir::Cache::archives="./" $dep
       fi
 	  done
 	fi
