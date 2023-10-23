@@ -18,6 +18,8 @@ while getopts f:p:s:r:d flag; do
 			;;
 		d) DEPENDS=1;
 			;;
+    z) ZIPIT=1;
+      ;;
     ?)
       exit;
       ;;
@@ -85,3 +87,14 @@ gzip -k -f Packages
 apt-ftparchive release . > Release
 gpg  -abs -o Release.gpg Release
 gpg --clearsign -o InRelease Release
+
+DATE_DIR_REPO=$(basename "${REPO_DIR}")
+REPO_DIR2=$(dirname $REPO_DIR)
+
+REPONAME_DIR_REPO=$(basename "${REPO_DIR2}")
+
+DIR_FOR_ZIPPING=$(dirname $(dirname "${REPO_DIR}"))
+cd "${DIR_FOR_ZIPPING}"
+if [ "x${ZIPIT}" = "x1" ] then
+    echo tar Jcvf "${REPONAME_DIR_REPO}-${DATE_DIR_REPO}.tar.xz" "${REPONAME_DIR_REPO}/${DATE_DIR_REPO}"
+fi
