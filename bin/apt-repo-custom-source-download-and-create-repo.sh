@@ -6,7 +6,7 @@
 PACKAGES="ansible ansible-doc"
 DEPENDS=0
 
-while getopts f:p:s:r:d flag; do
+while getopts z:f:p:s:r:d flag; do
   case $flag in
     f) PACKAGES_FILE="$OPTARG";
       ;;
