@@ -1,1 +1,0 @@
-deb [signed-by=/home/han/cicd/debian-custom-repo/config/google.gpgkey arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main

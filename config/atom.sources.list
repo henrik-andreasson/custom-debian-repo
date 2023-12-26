@@ -1,1 +1,0 @@
-deb [signed-by=/home/han/cicd/debian-custom-repo/config/atom.gpgkey arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main

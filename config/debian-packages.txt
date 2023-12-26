@@ -11,3 +11,5 @@ python3-netaddr
 python3-mysqldb
 gnutls-bin
 linux-image-amd64
+gradle
+openjdk-17-jdk
