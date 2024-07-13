@@ -6,23 +6,26 @@
 PACKAGES="ansible ansible-doc"
 DEPENDS=0
 
-while getopts zf:p:s:r:d flag; do
+NOSIGN=0
+while getopts zf:p:s:r:dn flag; do
   case $flag in
     f) PACKAGES_FILE="$OPTARG";
-      ;;
+        ;;
     p) PACKAGES="$OPTARG";
-      ;;
-		s) SOURCELIST="$OPTARG";
-			;;
-		r) REPO_DIR="$OPTARG";
-			;;
-		d) DEPENDS=1;
-			;;
+        ;;
+	s) SOURCELIST="$OPTARG";
+	   ;;
+	r) REPO_DIR="$OPTARG";
+	   ;;
+	d) DEPENDS=1;
+	   ;;
     z) ZIPIT=1;
-      ;;
+        ;;
+    n) NOSIGN=1;
+        ;;
     ?)
-      exit;
-      ;;
+        exit;
+        ;;
   esac
 done
 
@@ -85,8 +88,11 @@ rm -rf Packages Packages.gz Release Release.gpg InRelease
 apt-ftparchive --arch amd64 packages . > Packages
 gzip -k -f Packages
 apt-ftparchive release . > Release
-gpg  -abs -o Release.gpg Release
-gpg --clearsign -o InRelease Release
+
+if [ "x${NOSIGN}" = "x0" ] ; then
+    gpg  -abs -o Release.gpg Release
+    gpg --clearsign -o InRelease Release
+fi
 
 DATE_DIR_REPO=$(basename "${REPO_DIR}")
 REPO_DIR2=$(dirname $REPO_DIR)
